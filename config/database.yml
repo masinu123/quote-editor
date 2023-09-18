@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch('DATABASE_HOST', '127.0.0.1') %>
+  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
+  database: <%= ENV['DATABASE_NAME'] || 'quote-editor' %>
+  username: <%= ENV['DATABASE_USER_NAME'] || 'postgres' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || '' %>
+
+development:
+  <<: *default
+  database: quote_editor_development
+
+test:
+  <<: *default
+  database: quote_editor_test
+
+production:
+  <<: *default
+  database: quote_editor_production
+  username: quote_editor
+  password: <%= ENV["DATABASE_PASSWORD"] %>
