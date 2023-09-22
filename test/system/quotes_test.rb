@@ -10,12 +10,13 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "New quote"
-    assert_selector "h1", text: "New quote"
+    fill_in "Name", with: "New quote"
 
-    fill_in "Name", with: "Capybara quote"
-    click_on "Create quote"
     assert_selector "h1", text: "Quotes"
-    assert_text "Capybara quote"
+    click_on "Create quote"
+
+    assert_selector "h1", text: "Quotes"
+    assert_text "New quote"
   end
 
   test "Showing a quote" do
@@ -30,10 +31,11 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit quote"
-
     fill_in "Name", with: "Updated quote"
+
+    assert_selector "h1", text: "Quotes"
     click_on "Update quote"
+
     assert_selector "h1", text: "Quotes"
     assert_text "Updated quote"
   end
