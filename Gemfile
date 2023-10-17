@@ -74,6 +74,8 @@ group :test do
 
 end
 
+gem "devise", "~> 4.8.1"
+
 # View helpers
 gem 'slim-rails', '~> 3.3'
 gem "simple_form", "~> 5.1.0"
