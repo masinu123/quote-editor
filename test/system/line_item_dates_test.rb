@@ -27,7 +27,7 @@ class LineItemDatesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "First quote"
 
     within id: dom_id(@line_item_date, :edit) do
-      click_on "Edit"
+      page.find(".btn[href*='edit']").click
     end
   
     assert_selector "h1", text: "First quote"
@@ -42,7 +42,7 @@ class LineItemDatesTest < ApplicationSystemTestCase
     assert_text I18n.l(Date.current, format: :long)
 
     within id: dom_id(@line_item_date, :edit) do
-      click_on "Delete"
+      page.find("input[value='delete'] ~ button").click
     end
   
     assert_no_text I18n.l(Date.current, format: :long)

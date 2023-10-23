@@ -6,8 +6,8 @@
           = l(line_item_date.date, format: :long)
         
         .line-item-date__actions
-          = button_to "Delete", [quote, line_item_date], method: :delete, class: "btn btn--light"
-          = link_to "Edit", [:edit, quote, line_item_date], class: "btn btn--light"
+          = button_to show_svg('delete.svg'), [quote, line_item_date], method: :delete, class: "btn btn--light btn--icon"
+          = link_to show_svg('edit.svg'), [:edit, quote, line_item_date], class: "btn btn--light btn--icon"
 
     .line-item-date__body
       .line-item.line-item--header

@@ -36,7 +36,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     assert_selector "h1", text: "First quote"
 
     within "##{dom_id(@line_item)}" do
-      click_on "Edit"
+      page.find(".btn[href*='edit']").click
     end
     assert_selector "h1", text: "First quote"
 
@@ -55,7 +55,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     end
 
     within "##{dom_id(@line_item)}" do
-      click_on "Delete"
+      page.find("input[value='delete'] ~ button").click
     end
 
     within "##{dom_id(@line_item_date)}" do

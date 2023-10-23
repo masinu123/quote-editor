@@ -31,7 +31,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     assert_selector "h1", text: "Quotes"
 
-    click_on "Edit", match: :first
+    page.first(".btn[href*='edit']").click
     fill_in "Name", with: "Updated quote"
 
     assert_selector "h1", text: "Quotes"
@@ -45,7 +45,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     assert_text @quote.name
 
-    click_on "Delete", match: :first
+    page.first("input[value='delete'] ~ button").click
     assert_no_text @quote.name
   end
 end
