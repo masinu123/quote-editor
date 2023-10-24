@@ -4,6 +4,6 @@ header.navbar
       = current_user.company_name
     .navbar__name
       = current_user.name
-    = button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn--dark"
+    = button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn--dark"
   - else 
-    = link_to "Sign in", new_user_session_path, class: "btn btn--dark navbar__right"
+    = link_to "Log in", new_user_session_path, class: "btn btn--dark navbar__right"

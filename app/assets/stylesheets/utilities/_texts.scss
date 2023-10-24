@@ -1,0 +1,9 @@
+.text-center {
+  text-align: center !important;
+}
+
+.text-color__linear {
+  background: -webkit-linear-gradient(var(--color-primary), var(--color-primary-rotate));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
